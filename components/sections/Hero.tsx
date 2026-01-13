@@ -5,6 +5,7 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import ShimmerButton from "@/components/ui/shimmer-button";
 import { heroData } from "@/data/portfolio-data";
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -38,7 +39,7 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.5, duration: 0.5 }}
-            className="mt-8 flex justify-center"
+            className="mt-8 flex justify-center gap-4"
         >
             <ShimmerButton className="shadow-2xl" onClick={() => {
                 document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -47,6 +48,15 @@ export const Hero = () => {
                     {heroData.cta}
                 </span>
             </ShimmerButton>
+            
+            <a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-neutral-700 bg-neutral-900/50 text-white text-sm lg:text-lg font-medium hover:bg-neutral-800 hover:border-neutral-600 transition-all duration-300 shadow-lg backdrop-blur-sm"
+            >
+              <Download className="h-4 w-4 lg:h-5 lg:w-5" />
+              <span>Resume</span>
+            </a>
         </motion.div>
       </div>
       <BackgroundBeams />

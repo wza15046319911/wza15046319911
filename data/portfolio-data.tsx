@@ -15,6 +15,7 @@ export const navItems = [
   { name: "Projects", link: "#projects", icon: <Layout className="h-4 w-4" /> },
   { name: "Experience", link: "#experience", icon: <Briefcase className="h-4 w-4" /> },
   { name: "Contact", link: "#contact", icon: <Mail className="h-4 w-4" /> },
+  { name: "Resume", link: "/resume.pdf", icon: <ExternalLink className="h-4 w-4" /> }
 ];
 
 export const heroData = {
