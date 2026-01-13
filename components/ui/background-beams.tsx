@@ -11,7 +11,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationFrameId: number;
+    let animationFrameId: number | undefined;
 
     const beams = [
       { x: 100, y: 100, length: 200, angle: 45, speed: 1, opacity: 0.5 },
@@ -32,7 +32,9 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
     // A simple gradient animation for now as placeholder for the full beams
     
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId !== undefined) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, []);
 
