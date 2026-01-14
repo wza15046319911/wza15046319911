@@ -1,0 +1,36 @@
+name: Generate Snake
+
+on:
+  schedule:
+    # every 6 hours
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: Platane/snk@v3
+        with:
+          # github user name to read the contribution graph from (**required**)
+          # using action context var `github.repository_owner` or specified user
+          github_user_name: wza15046319911
+
+          # list of files to generate.
+          # one file per line. Each output can be customized with options as query string.
+          #
+          #  supported options:
+          #  - palette:     A preset of color, one of [github, github-dark, github-light]
+          #  - color_snake: Color of the snake
+          #  - color_dots:  Coma separated list of dots color.
+          #                 The first one is 0 contribution, then it goes from the low contribution to the highest.
+          #                 Exactly 5 colors are expected.
+          outputs: |
+            public/assets/github-snake.svg?palette=github-dark
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: update github snake"
+          file_pattern: public/assets/github-snake.svg

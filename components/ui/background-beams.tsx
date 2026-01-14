@@ -24,13 +24,13 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
       // Implementation of beam animation logic would go here
       // This is a placeholder for the complex canvas logic usually found in this component
     };
-    
+
     // To save space and complexity, I'll use a CSS-based alternative or a simpler canvas implementation
     // if the full shader/canvas logic is too long.
     // For now, let's just make sure it compiles and renders *something*.
-    
+
     // A simple gradient animation for now as placeholder for the full beams
-    
+
     return () => {
       if (animationFrameId !== undefined) {
         cancelAnimationFrame(animationFrameId);
@@ -39,14 +39,9 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
   }, []);
 
   return (
-    <div
-      className={cn(
-        "absolute h-full w-full inset-0 bg-neutral-950",
-        className
-      )}
-    >
-       {/* Background gradient/grid */}
-       <div className="absolute inset-0 bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <div className={cn("absolute inset-0 h-full w-full bg-neutral-950", className)}>
+      {/* Background gradient/grid */}
+      <div className="absolute inset-0 bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
     </div>
   );
 };
@@ -57,7 +52,12 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
 // I will write a simplified "Beams" which is just a nice dark background with some moving gradients.
 
 export const BackgroundBeamsSimplified = ({ className }: { className?: string }) => {
-    return (
-        <div className={cn("absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl", className)} />
-    )
-}
+  return (
+    <div
+      className={cn(
+        "absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl",
+        className
+      )}
+    />
+  );
+};

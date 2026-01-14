@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Code,
-  Layout,
-  User,
-  Briefcase,
-  Mail,
-  ExternalLink,
-} from "lucide-react";
+import { Code, Layout, User, Briefcase, Mail, ExternalLink } from "lucide-react";
 import { SiInstagram, SiGithub, SiLinkedin } from "react-icons/si";
 
 export const navItems = [
@@ -15,7 +8,7 @@ export const navItems = [
   { name: "Projects", link: "#projects", icon: <Layout className="h-4 w-4" /> },
   { name: "Experience", link: "#experience", icon: <Briefcase className="h-4 w-4" /> },
   { name: "Contact", link: "#contact", icon: <Mail className="h-4 w-4" /> },
-  { name: "Resume", link: "/resume.pdf", icon: <ExternalLink className="h-4 w-4" /> }
+  { name: "Resume", link: "/resume.pdf", icon: <ExternalLink className="h-4 w-4" /> },
 ];
 
 export const heroData = {
@@ -37,7 +30,15 @@ export const aboutData = {
 };
 
 export const skillsData = {
-  frontend: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "Framer Motion", "Radix UI"],
+  frontend: [
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Redux",
+    "Framer Motion",
+    "Radix UI",
+  ],
   backend: ["Node.js", "Express.js", "Python", "PostgreSQL", "MongoDB", "Drizzle ORM"],
   tools: ["Docker", "Kubernetes", "CI/CD", "GitHub Actions", "AWS", "GCP", "Git", "Postman"],
 };
@@ -119,7 +120,8 @@ export const projectsData = [
 
 export const experienceData = {
   title: "Experience",
-  description: "My journey as a Full Stack Developer, building scalable applications and leading technical teams.",
+  description:
+    "My journey as a Full Stack Developer, building scalable applications and leading technical teams.",
   items: [
     {
       title: "Senior Full Stack Developer",
@@ -169,9 +171,25 @@ export const experienceData = {
 export const contactData = {
   email: "zianwang9911@gmail.com",
   social: [
-    { title: "GitHub", icon: <SiGithub className="h-full w-full text-neutral-300" />, href: "https://github.com/wza15046319911" },
-    { title: "LinkedIn", icon: <SiLinkedin className="h-full w-full text-neutral-300" />, href: "https://www.linkedin.com/in/zian-wang-39081b225/" },
-    { title: "Instagram", icon: <SiInstagram className="h-full w-full text-neutral-300" />, href: "https://www.instagram.com/zianwangw?igsh=MTduNXk1ZnNmOHdwZA%3D%3D&utm_source=qr" },
-    { title: "Email", icon: <Mail className="h-full w-full text-neutral-300" />, href: "mailto:zianwang9911@gmail.com" },
+    {
+      title: "GitHub",
+      icon: <SiGithub className="h-full w-full text-neutral-300" />,
+      href: "https://github.com/wza15046319911",
+    },
+    {
+      title: "LinkedIn",
+      icon: <SiLinkedin className="h-full w-full text-neutral-300" />,
+      href: "https://www.linkedin.com/in/zian-wang-39081b225/",
+    },
+    {
+      title: "Instagram",
+      icon: <SiInstagram className="h-full w-full text-neutral-300" />,
+      href: "https://www.instagram.com/zianwangw?igsh=MTduNXk1ZnNmOHdwZA%3D%3D&utm_source=qr",
+    },
+    {
+      title: "Email",
+      icon: <Mail className="h-full w-full text-neutral-300" />,
+      href: "mailto:zianwang9911@gmail.com",
+    },
   ],
 };

@@ -9,54 +9,57 @@ import { Download } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <div className="h-screen w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
-      <div className="max-w-2xl mx-auto p-4 relative z-10 text-center">
+    <div className="relative flex h-screen w-full flex-col items-center justify-center rounded-md bg-neutral-950 antialiased">
+      <div className="relative z-10 mx-auto max-w-2xl p-4 text-center">
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-             <h2 className="text-lg md:text-xl font-bold text-neutral-400 mb-4 tracking-widest uppercase">
-                {heroData.title}
-             </h2>
+          <h2 className="mb-4 text-lg font-bold tracking-widest text-neutral-400 uppercase md:text-xl">
+            {heroData.title}
+          </h2>
         </motion.div>
-       
+
         <TextGenerateEffect
           words={heroData.subtitle}
-          className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300"
+          className="bg-gradient-to-b from-white to-neutral-300 bg-clip-text text-center text-4xl font-bold text-transparent md:text-7xl"
         />
-        
-        <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="mt-4 font-normal text-base text-neutral-300 max-w-lg mx-auto"
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-300"
         >
           {heroData.description}
         </motion.p>
 
-        <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            className="mt-8 flex justify-center gap-4"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
+          className="mt-8 flex justify-center gap-4"
         >
-            <ShimmerButton className="shadow-2xl" onClick={() => {
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-            }}>
-                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                    {heroData.cta}
-                </span>
-            </ShimmerButton>
-            
-            <a
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-neutral-700 bg-neutral-900/50 text-white text-sm lg:text-lg font-medium hover:bg-neutral-800 hover:border-neutral-600 transition-all duration-300 shadow-lg backdrop-blur-sm"
-            >
-              <Download className="h-4 w-4 lg:h-5 lg:w-5" />
-              <span>Resume</span>
-            </a>
+          <ShimmerButton
+            className="shadow-2xl"
+            onClick={() => {
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            <span className="text-center text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-lg dark:from-white dark:to-slate-900/10">
+              {heroData.cta}
+            </span>
+          </ShimmerButton>
+
+          <a
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-neutral-700 bg-neutral-900/50 px-6 py-3 text-sm font-medium text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-neutral-600 hover:bg-neutral-800 lg:text-lg"
+          >
+            <Download className="h-4 w-4 lg:h-5 lg:w-5" />
+            <span>Resume</span>
+          </a>
         </motion.div>
       </div>
       <BackgroundBeams />

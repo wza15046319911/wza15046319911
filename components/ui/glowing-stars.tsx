@@ -20,12 +20,12 @@ export const GlowingStarsBackgroundCard = ({
       onMouseLeave={() => {
         setMouseEnter(false);
       }}
-      className={`bg-opacity-50 h-full w-full rounded-xl relative overflow-hidden bg-neutral-900 border border-neutral-800 ${className}`}
+      className={`bg-opacity-50 relative h-full w-full overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900 ${className}`}
     >
-      <div className="flex justify-center items-center h-full">
+      <div className="flex h-full items-center justify-center">
         <Illustration mouseEnter={mouseEnter} />
       </div>
-      <div className="px-2 pb-2 relative z-20">{children}</div>
+      <div className="relative z-20 px-2 pb-2">{children}</div>
     </div>
   );
 };
@@ -37,25 +37,11 @@ export const GlowingStarsDescription = ({
   text: string;
   className?: string;
 }) => {
-  return (
-    <p className={`text-base text-neutral-200 max-w-[10rem] ${className}`}>
-      {text}
-    </p>
-  );
+  return <p className={`max-w-[10rem] text-base text-neutral-200 ${className}`}>{text}</p>;
 };
 
-export const GlowingStarsTitle = ({
-  text,
-  className,
-}: {
-  text: string;
-  className?: string;
-}) => {
-  return (
-    <h3 className={`font-bold text-2xl text-neutral-100 ${className}`}>
-      {text}
-    </h3>
-  );
+export const GlowingStarsTitle = ({ text, className }: { text: string; className?: string }) => {
+  return <h3 className={`text-2xl font-bold text-neutral-100 ${className}`}>{text}</h3>;
 };
 
 const Illustration = ({ mouseEnter }: { mouseEnter: boolean }) => {
@@ -68,9 +54,7 @@ const Illustration = ({ mouseEnter }: { mouseEnter: boolean }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      highlightedStars.current = Array.from({ length: 5 }, () =>
-        Math.floor(Math.random() * stars)
-      );
+      highlightedStars.current = Array.from({ length: 5 }, () => Math.floor(Math.random() * stars));
       setGlowingStars([...highlightedStars.current]);
     }, 3000);
 
@@ -79,7 +63,7 @@ const Illustration = ({ mouseEnter }: { mouseEnter: boolean }) => {
 
   return (
     <div
-      className="h-full w-full p-1 w-full grid gap-1 absolute inset-0 z-0"
+      className="absolute inset-0 z-0 grid h-full w-full gap-1 p-1"
       style={{
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
       }}
@@ -98,9 +82,7 @@ const Illustration = ({ mouseEnter }: { mouseEnter: boolean }) => {
               delay={mouseEnter ? staticDelay : delay}
             />
             {mouseEnter && <Glow delay={staticDelay} />}
-            <AnimatePresence mode="wait">
-              {isGlowing && <Glow delay={delay} />}
-            </AnimatePresence>
+            <AnimatePresence mode="wait">{isGlowing && <Glow delay={delay} />}</AnimatePresence>
           </div>
         );
       })}
@@ -124,7 +106,7 @@ const Star = ({ isGlowing, delay }: { isGlowing: boolean; delay: number }) => {
         ease: "easeInOut",
         delay: delay,
       }}
-      className={`bg-[#666] h-[1px] w-[1px] rounded-full relative z-20`}
+      className={`relative z-20 h-[1px] w-[1px] rounded-full bg-[#666]`}
     ></motion.div>
   );
 };
@@ -146,7 +128,7 @@ const Glow = ({ delay }: { delay: number }) => {
         ease: "easeInOut",
         delay: delay,
       }}
-      className="absolute  left-1/2 -translate-x-1/2 z-10 h-[4px] w-[4px] rounded-full bg-blue-500 blur-[1px] shadow-2xl shadow-blue-400"
+      className="absolute left-1/2 z-10 h-[4px] w-[4px] -translate-x-1/2 rounded-full bg-blue-500 shadow-2xl shadow-blue-400 blur-[1px]"
     />
   );
 };

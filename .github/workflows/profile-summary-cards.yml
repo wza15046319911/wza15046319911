@@ -1,0 +1,45 @@
+name: Generate GitHub Summary Cards
+
+on:
+  schedule:
+    - cron: "0 */24 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-github-profile-summary-cards
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          # We'll use the default output first, then move it.
+          # The action defaults to creating a folder named "profile-summary-card-output" locally
+
+      - name: Move and Commit
+        run: |
+          mkdir -p public/assets/github-stats
+          # Copy the dark theme (or wanted theme) to our public folder. 
+          # The action generates multiple themes. Let's pick 'tokyonight' or 'radical' or 'dark'.
+          # Let's assume 'tokyonight' fits the dark aesthetic well, or just standard 'dark'.
+          # Copying all themes might be too much, let's copy 'tokyonight' and 'default' (which is white).
+
+          # Check if the directory exists before copying to avoid errors if action fails silently
+          if [ -d "profile-summary-card-output" ]; then
+            cp -r profile-summary-card-output/* public/assets/github-stats/
+          fi
+
+          # Clean up the root output folder so we don't commit it there
+          rm -rf profile-summary-card-output
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: update github summary cards"
+          file_pattern: public/assets/github-stats/**

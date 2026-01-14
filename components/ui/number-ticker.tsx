@@ -34,9 +34,7 @@ export default function NumberTicker({
   useEffect(() => {
     springValue.on("change", (latest) => {
       if (ref.current) {
-        ref.current.textContent = Intl.NumberFormat("en-US").format(
-          Number(latest.toFixed(0)),
-        );
+        ref.current.textContent = Intl.NumberFormat("en-US").format(Number(latest.toFixed(0)));
       }
     });
   }, [springValue]);
@@ -44,8 +42,8 @@ export default function NumberTicker({
   return (
     <span
       className={cn(
-        "inline-block tabular-nums text-black dark:text-white tracking-wider",
-        className,
+        "inline-block tracking-wider text-black tabular-nums dark:text-white",
+        className
       )}
       ref={ref}
     />

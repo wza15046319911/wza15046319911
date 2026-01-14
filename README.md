@@ -26,11 +26,11 @@ Welcome to the source code of my **Personal Portfolio**, a high-performance web 
 
 Built with **performance**, **aesthetics**, and **scalability** in mind:
 
-| Core | Styling & UI | Logic & Tools |
-| :--- | :--- | :--- |
+| Core                                                                                                     | Styling & UI                                                                                                          | Logic & Tools                                                                                                   |
+| :------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
 | ![Next.js](https://img.shields.io/badge/Next.js_16-black?style=flat-square&logo=next.js&logoColor=white) | ![Tailwind CSS](https://img.shields.io/badge/Tailwind_4.0-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) |
-| ![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black) | ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white) | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white) |
-| | ![Aceternity UI](https://img.shields.io/badge/Aceternity_UI-black?style=flat-square) | ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=black) |
+| ![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)      | ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)     | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)             |
+|                                                                                                          | ![Aceternity UI](https://img.shields.io/badge/Aceternity_UI-black?style=flat-square)                                  | ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=black)       |
 
 ### 📂 Project Structure
 
@@ -46,8 +46,7 @@ Built with **performance**, **aesthetics**, and **scalability** in mind:
 
 ## 🛠 Getting Started
 
-Want to run this locally? Well, not necessary.
----
+## Want to run this locally? Well, not necessary.
 
 <div align="center">
 
