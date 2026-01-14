@@ -1,25 +1,60 @@
-# Hi 👋, I'm Zian Wang
+<div align="center">
 
-### Zian Wang, you know nothing
+# Hi there, I'm Zian Wang 👋
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=wza15046319911&label=Profile views&color=0e75b6&style=flat" alt="wza15046319911" /> </p>
+### Full Stack Developer | Next.js Enthusiast | Creative Coder
 
-- 🔭 I'm currently working on **a question pool website aiming to aid students to nail their examinations**
+🔭 I'm currently working on a **Question Pool Website** to help students ace their exams.
+🌱 I'm currently learning **Kubernetes**.
 
-- 🌱 I'm currently learning **Kubernetes**
-
-- 📫 How to reach me **zianwang9911@gmail.com**
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://github.com/wza15046319911" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="wza15046319911" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/zian-wang-39081b225" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="zian-wang-39081b225" height="30" width="40" /></a>
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=wza15046319911&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="wza15046319911" />
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://developer.mozilla.org/en-US/docs/Web/aws" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=aws" alt="aws" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/azure" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=azure" alt="azure" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/docker" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=docker" alt="docker" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/express" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=express" alt="express" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/firebase" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=firebase" alt="firebase" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/gcp" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=gcp" alt="gcp" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/git" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=git" alt="git" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/go" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=go" alt="go" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/javascript" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=js" alt="javascript" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/kubernetes" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=kubernetes" alt="kubernetes" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/mongodb" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=mongodb" alt="mongodb" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/nodejs" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=nodejs" alt="nodejs" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/postgresql" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=postgres" alt="postgresql" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/puppeteer" target="_blank" rel="noreferrer"> <img src="https://cdn.simpleicons.org/puppeteer/40B5A4" alt="puppeteer" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/python" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=py" alt="python" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/react" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=react" alt="react" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/reactnative" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=react" alt="reactnative" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/redis" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=redis" alt="redis" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/selenium" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=selenium" alt="selenium" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/typescript" target="_blank" rel="noreferrer"> <img src="https://skillicons.dev/icons?i=ts" alt="typescript" width="40" height="40"/> </a></p>
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://linkedin.com/in/zian-wang-39081b225)
+[<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />](mailto:zianwang9911@gmail.com)
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=wza15046319911&show_icons=true&locale=en&layout=compact" alt="wza15046319911" /></p>
+---
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=wza15046319911&show_icons=true&locale=en" alt="wza15046319911" /></p>
+</div>
 
+## 🚀 About This Repository
+
+Welcome to the source code of my **Personal Portfolio**, a high-performance web application crafted with the latest bleeding-edge technologies. This project serves as both my digital business card and a playground for experimenting with modern frontend architecture.
+
+### ⚡️ Tech Stack
+
+Built with **performance**, **aesthetics**, and **scalability** in mind:
+
+| Core | Styling & UI | Logic & Tools |
+| :--- | :--- | :--- |
+| ![Next.js](https://img.shields.io/badge/Next.js_16-black?style=flat-square&logo=next.js&logoColor=white) | ![Tailwind CSS](https://img.shields.io/badge/Tailwind_4.0-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) |
+| ![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black) | ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white) | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white) |
+| | ![Aceternity UI](https://img.shields.io/badge/Aceternity_UI-black?style=flat-square) | ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=black) |
+
+### 📂 Project Structure
+
+```bash
+├── app/                  # Next.js 16 App Router
+├── components/           # React 19 Server & Client Components
+│   ├── ui/               # Reusable UI primitives (Aceternity/Shadcn)
+│   └── sections/         # Page sections (Hero, About, Projects)
+├── data/                 # Static content & configuration
+├── lib/                  # Utilities & helpers
+└── public/               # Static assets
+```
+
+## 🛠 Getting Started
+
+Want to run this locally? Well, not necessary.
+---
+
+<div align="center">
+
+### 📊 My GitHub Stats
+
+<img src="https://github-readme-stats.vercel.app/api?username=wza15046319911&show_icons=true&locale=en&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="wza15046319911" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs?username=wza15046319911&show_icons=true&locale=en&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="wza15046319911" />
+
+</div>
