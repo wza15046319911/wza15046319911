@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const generateMeteorStyles = (count: number) => {
@@ -12,8 +12,23 @@ const generateMeteorStyles = (count: number) => {
 };
 
 export const Meteors = ({ number = 20, className }: { number?: number; className?: string }) => {
-  // useState initializer only runs once on mount, so Math.random() is safe here
-  const [meteorStyles] = useState(() => generateMeteorStyles(number));
+  // Use useState with null initial value and useEffect to set styles only on client
+  // This prevents hydration mismatch by ensuring random values are only generated on the client
+  const [meteorStyles, setMeteorStyles] = useState<Array<{
+    top: number;
+    left: string;
+    animationDelay: string;
+    animationDuration: string;
+  }> | null>(null);
+
+  useEffect(() => {
+    setMeteorStyles(generateMeteorStyles(number));
+  }, [number]);
+
+  // Return empty fragment during SSR to avoid hydration mismatch
+  if (!meteorStyles) {
+    return null;
+  }
 
   return (
     <>

@@ -48,7 +48,7 @@ export const projectsData = [
     id: 1,
     title: "Piggyway",
     description:
-      "Piggyway is a modern, full-stack e-commerce platform dedicated to small pet care (Guinea Pigs & Rabbits). Built for performance and scalability, it features a fluid Next.js 16 storefront with a custom design system, a high-speed Hono/Bun backend, and Directus for flexible content management. The platform delivers a seamless shopping experience with secure Stripe payments, real-time inventory tracking, and integrated local pickup scheduling.",
+      "A modern e-commerce platform for small pet care, built with Next.js 16 and Hono/Bun. Features secure Stripe payments and real-time inventory tracking.",
     img: "https://res.cloudinary.com/davy7cgyi/image/upload/v1767875655/og_image_yjdd1w.png",
     link: "https://piggyway.com.au",
     github: "https://github.com/piggyway/piggy-frontend",
@@ -73,7 +73,7 @@ export const projectsData = [
     id: 2,
     title: "Nothing But Fun",
     description:
-      "Nothing But Fun is a versatile community lifestyle platform operating as a seamless WeChat Mini Program. Built with Taro (React) and a robust Node.js/Express backend, it features a dynamic ecosystem for event registration, peer-to-peer secondhand trading, and diverse rental services. The platform streamlines local engagement with integrated tools for carpooling coordination and service discovery, delivering a unified, one-stop user experience.",
+      "A community lifestyle WeChat Mini Program built with Taro and Node.js. Features event registration, secondhand trading, and rental services.",
     img: "",
     link: "",
     wechatInfo: "微信搜索布好玩bris小程序",
@@ -97,7 +97,7 @@ export const projectsData = [
     id: 3,
     title: "StudyPilot",
     description:
-      "StudyPilot is a modern, adaptive learning platform designed for high-performance exam preparation. Built to transform passive study into active mastery, it features a responsive Next.js 15 application with a sophisticated Supabase backend. The platform delivers a personalized learning experience through curated question banks, timed mock exams, and an intelligent mistake-review system. It combines rigorous progress analytics with a highly interactive, gamified UI powered by Aceternity effects, ensuring students stay engaged while mastering complex subjects.",
+      "An adaptive learning platform for exam preparation built with Next.js 15 and Supabase. Features timed mock exams and intelligent mistake-review system.",
     img: "https://res.cloudinary.com/davy7cgyi/image/upload/v1768304297/studypilot-screenshot_cwtgql.png",
     link: "https://studypilot.lewiswang.com.au",
     github: "https://github.com/wza15046319911/study-pilot",

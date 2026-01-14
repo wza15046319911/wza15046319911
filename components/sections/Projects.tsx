@@ -1,13 +1,25 @@
 "use client";
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { projectsData } from "@/data/portfolio-data";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import Image from "next/image";
+import { BentoGrid } from "../ui/bento-grid";
+import { WobbleCard } from "../ui/wobble-card";
+import { LinkPreview } from "../ui/link-preview";
 
 export const Projects = () => {
+  // We want to order the projects specifically: Piggyway (0), Nothing But Fun (1), StudyPilot (2)
+  // But render order for grid: 0 (2 cols), 1 (1 col, 2 rows), 2 (2 cols)
+  const piggyway = projectsData.find((p) => p.title === "Piggyway");
+  const nothingButFun = projectsData.find((p) => p.title === "Nothing But Fun");
+  const studyPilot = projectsData.find((p) => p.title === "StudyPilot");
+
+  // Reconstruct the array in the render order we want (which happens to be the same as data order 0, 1, 2)
+  // But we need to be explicit about it for the layout logic
+  const projects = [piggyway, nothingButFun, studyPilot].filter(Boolean) as typeof projectsData;
+
   return (
     <section id="projects" className="bg-black py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-10">
@@ -15,144 +27,121 @@ export const Projects = () => {
           Featured Projects
         </h2>
 
-        <div className="space-y-20">
-          {projectsData.map((project, index) => {
-            const isEven = index % 2 === 0;
+        <BentoGrid className="max-w-7xl mx-auto md:auto-rows-[20rem]">
+          {projects.map((project, i) => {
+            const isMobileApp = project.title === "Nothing But Fun";
+            
+            // Define column and row spans
+            // Piggyway (0): col-span-2
+            // Nothing But Fun (1): col-span-1 row-span-2
+            // StudyPilot (2): col-span-2
+            
+            let containerClass = "";
+            let minHeightClass = "";
+            
+            if (project.title === "Piggyway") {
+              containerClass = "col-span-1 md:col-span-2 bg-pink-900/20";
+              minHeightClass = "min-h-[300px]";
+            } else if (project.title === "Nothing But Fun") {
+              containerClass = "col-span-1 md:col-span-1 md:row-span-2 bg-indigo-900/20";
+              minHeightClass = "min-h-[500px] md:min-h-full";
+            } else if (project.title === "StudyPilot") {
+              containerClass = "col-span-1 md:col-span-2 bg-blue-900/20";
+              minHeightClass = "min-h-[300px]";
+            }
 
-            // Different 3D effects and directions for each project
-            const effects = [
-              {
-                imgZ: 120,
-                titleZ: 50,
-                descZ: 60,
-                btnZ: 25,
-                rotateY: 0,
-                direction: "normal" as const,
-              }, // First: standard
-              {
-                imgZ: 100,
-                titleZ: 40,
-                descZ: 50,
-                btnZ: 20,
-                rotateY: 5,
-                direction: "reverse" as const,
-              }, // Second: reverse
-              {
-                imgZ: 140,
-                titleZ: 60,
-                descZ: 70,
-                btnZ: 30,
-                rotateY: -5,
-                direction: "alternate" as const,
-              }, // Third: alternate
-            ];
-            const effect = effects[index % effects.length];
+            // Image Override for Mobile App
+            const imgSrc = isMobileApp 
+              ? "https://res.cloudinary.com/davy7cgyi/image/upload/v1768392592/427shots_so_sz1apq.png"
+              : project.img;
 
             return (
-              <CardContainer
+              <WobbleCard
                 key={project.id}
-                className="inter-var w-full"
-                direction={effect.direction}
+                containerClassName={containerClass}
+                className=""
               >
-                <div
-                  className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8`}
-                >
-                  {/* Image Section */}
-                  <div className={`w-full md:w-1/2 ${isEven ? "md:order-1" : "md:order-2"}`}>
-                    <CardItem translateZ={effect.imgZ} rotateY={effect.rotateY} className="w-full">
-                      <div className="relative h-64 w-full overflow-hidden rounded-xl bg-neutral-800 group-hover/card:shadow-xl md:h-80">
-                        {project.img ? (
-                          <Image
-                            src={project.img}
-                            height={800}
-                            width={1200}
-                            className="h-full w-full rounded-xl object-cover group-hover/card:shadow-xl"
-                            alt={`${project.title} screenshot`}
-                          />
-                        ) : (
-                          <div className="flex h-full w-full items-center justify-center text-neutral-500">
-                            <span>Project Image</span>
-                          </div>
-                        )}
-                      </div>
-                    </CardItem>
-                  </div>
+                <div className={`h-full flex flex-col ${isMobileApp ? 'justify-between' : 'justify-between'}`}>
+                  
+                  {/* Content Header */}
+                  <div className={`relative z-10 ${isMobileApp ? "" : "max-w-[55%]"}`}>
+                    <h3 className="text-left text-base/tight font-bold text-white md:text-xl lg:text-3xl">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 text-left text-base/tight text-neutral-200">
+                      {project.description}
+                    </p>
+                    
+                    {/* Tech Stack - simplified */}
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.tech.slice(0, 4).map((t, idx) => (
+                        <span key={idx} className="rounded-full bg-white/10 px-2 py-0.5 text-xs text-white">
+                          {t}
+                        </span>
+                      ))}
+                      {project.tech.length > 4 && (
+                        <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs text-white">
+                          +{project.tech.length - 4}
+                        </span>
+                      )}
+                    </div>
 
-                  {/* Content Section */}
-                  <div className={`w-full md:w-1/2 ${isEven ? "md:order-2" : "md:order-1"}`}>
-                    <CardBody className="group/card relative h-auto w-full rounded-xl border border-black/[0.1] bg-neutral-900 p-6 dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
-                      <CardItem
-                        translateZ={effect.titleZ}
-                        rotateY={-effect.rotateY * 0.5}
-                        className="mb-4 text-2xl font-bold text-neutral-600 md:text-3xl dark:text-white"
-                      >
-                        {project.title}
-                      </CardItem>
-                      <CardItem
-                        as="p"
-                        translateZ={effect.descZ}
-                        rotateY={-effect.rotateY * 0.3}
-                        className="mt-2 mb-6 max-w-sm text-sm text-neutral-500 md:text-base dark:text-neutral-300"
-                      >
-                        {project.description}
-                      </CardItem>
-
-                      <div className="mb-6 flex flex-wrap gap-2">
-                        {project.tech.map((t, i) => (
-                          <span
-                            key={i}
-                            className="rounded bg-neutral-800 px-3 py-1 text-xs text-neutral-400"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex items-center gap-4">
-                        {project.link ? (
-                          <CardItem
-                            translateZ={effect.btnZ}
-                            rotateY={-effect.rotateY * 0.2}
-                            as={Link}
-                            href={project.link}
-                            target="__blank"
-                            className="rounded-xl px-4 py-2 text-xs font-normal hover:underline dark:text-white"
-                          >
-                            <div className="flex items-center gap-2">
-                              <ExternalLink className="h-4 w-4" /> Live Demo
-                            </div>
-                          </CardItem>
-                        ) : (project as any).wechatInfo ? (
-                          <CardItem
-                            translateZ={effect.btnZ}
-                            rotateY={-effect.rotateY * 0.2}
-                            className="rounded-xl px-4 py-2 text-xs font-normal dark:text-white"
-                          >
-                            <div className="flex items-center gap-2">
-                              <span>{(project as any).wechatInfo}</span>
-                            </div>
-                          </CardItem>
-                        ) : null}
-                        <CardItem
-                          translateZ={effect.btnZ}
-                          rotateY={-effect.rotateY * 0.2}
-                          as={Link}
-                          href={project.github}
-                          target="__blank"
-                          className="rounded-xl bg-black px-4 py-2 text-xs font-bold text-white transition-opacity hover:opacity-80 dark:bg-white dark:text-black"
+                     {/* Links */}
+                    <div className="mt-4 flex items-center gap-4">
+                      {project.link ? (
+                        <LinkPreview
+                          url={project.link}
+                          className="flex items-center gap-2 text-sm font-medium text-white hover:underline"
                         >
-                          <div className="flex items-center gap-2">
-                            <SiGithub className="h-4 w-4" /> GitHub
-                          </div>
-                        </CardItem>
-                      </div>
-                    </CardBody>
+                          <ExternalLink className="h-4 w-4" /> Live Demo
+                        </LinkPreview>
+                      ) : (project as any).wechatInfo ? (
+                        <div className="flex items-center gap-2 text-sm font-medium text-white">
+                          <span>{(project as any).wechatInfo}</span>
+                        </div>
+                      ) : null}
+                      <Link
+                        href={project.github}
+                        target="__blank"
+                        className="flex items-center gap-2 text-sm font-medium text-white hover:underline"
+                      >
+                        <SiGithub className="h-4 w-4" /> GitHub
+                      </Link>
+                    </div>
                   </div>
+
+                  {/* Image */}
+                  {isMobileApp ? (
+                    <div className="relative mt-10 h-full w-full">
+                       <Image
+                        src={imgSrc}
+                        alt={project.title}
+                        width={500}
+                        height={800}
+                        className="absolute -right-10 -bottom-10 w-[80%] rounded-2xl object-cover md:-right-[20%] lg:-right-[10%]"
+                      />
+                      {/* Fake QR Code */}
+                       <div className="absolute bottom-4 left-4 h-16 w-16 bg-white p-1 rounded-lg flex items-center justify-center">
+                          <div className="w-full h-full border-2 border-black border-dashed flex items-center justify-center text-[8px] text-black font-bold text-center">
+                             QR CODE
+                          </div>
+                       </div>
+                    </div>
+                  ) : (
+                    <Image
+                      src={imgSrc}
+                      width={600}
+                      height={400}
+                      alt={project.title}
+                      className="absolute -right-4 -bottom-10 w-1/2 rounded-2xl object-cover md:-right-[20%] lg:-right-[5%]"
+                    />
+                  )}
+                  
                 </div>
-              </CardContainer>
+              </WobbleCard>
             );
           })}
-        </div>
+        </BentoGrid>
       </div>
     </section>
   );
