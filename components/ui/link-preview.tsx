@@ -12,7 +12,6 @@ type Props = {
   width?: number;
   height?: number;
   quality?: number;
-  layout?: "fixed" | "intrinsic" | "responsive" | "fill";
   isStatic?: boolean;
   imageSrc?: string;
 };
@@ -26,7 +25,6 @@ export const LinkPreview = ({
   width = 200,
   height = 125,
   quality = 50,
-  layout = "fixed",
   isStatic = false,
   imageSrc = "",
 }: Props) => {
@@ -85,8 +83,6 @@ export const LinkPreview = ({
                 width={width}
                 height={height}
                 quality={quality}
-                // @ts-expect-error next/image legacy prop typing (ok for our use)
-                layout={layout}
                 className="block h-auto w-auto"
               />
             </div>
