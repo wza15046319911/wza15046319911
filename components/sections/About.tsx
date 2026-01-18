@@ -10,6 +10,14 @@ import {
   IconChartBar,
   IconCpu,
 } from "@tabler/icons-react";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiPython,
+  SiNodedotjs,
+  SiPostgresql,
+} from "react-icons/si";
 import { aboutData } from "@/data/portfolio-data";
 import NumberTicker from "@/components/ui/number-ticker";
 import {
@@ -191,12 +199,13 @@ const items = [
     title: "Top Languages",
     description: "The languages I use the most.",
     header: (
-      <div className="relative flex h-full min-h-[6rem] w-full flex-1 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-neutral-900 p-4">
-        <img
-          src="/assets/github-stats/tokyonight/2-top-languages.svg"
-          alt="GitHub Top Languages"
-          className="h-full w-full object-contain"
-        />
+      <div className="flex h-full min-h-[6rem] w-full flex-1 flex-wrap items-center justify-center gap-4 rounded-xl border border-white/10 bg-neutral-900 p-4">
+        <SiReact className="h-8 w-8 text-blue-400" />
+        <SiNextdotjs className="h-8 w-8 text-white" />
+        <SiTypescript className="h-8 w-8 text-blue-600" />
+        <SiPython className="h-8 w-8 text-yellow-400" />
+        <SiNodedotjs className="h-8 w-8 text-green-500" />
+        <SiPostgresql className="h-8 w-8 text-blue-300" />
       </div>
     ),
     icon: <IconCpu className="h-4 w-4 text-neutral-500" />,

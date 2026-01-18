@@ -120,11 +120,15 @@ export const Projects = () => {
                         height={800}
                         className="absolute -right-10 -bottom-10 w-[80%] rounded-2xl object-cover md:-right-[20%] lg:-right-[10%]"
                       />
-                      {/* Fake QR Code */}
-                       <div className="absolute bottom-4 left-4 h-16 w-16 bg-white p-1 rounded-lg flex items-center justify-center">
-                          <div className="w-full h-full border-2 border-black border-dashed flex items-center justify-center text-[8px] text-black font-bold text-center">
-                             QR CODE
-                          </div>
+                      {/* QR Code */}
+                       <div className="absolute bottom-4 left-4 h-24 w-24 bg-white p-1 rounded-lg flex items-center justify-center overflow-hidden">
+                          <Image
+                            src="/IMG_6435.JPG"
+                            alt="Mini Program QR Code"
+                            width={100}
+                            height={100}
+                            className="h-full w-full object-cover"
+                          />
                        </div>
                     </div>
                   ) : (
