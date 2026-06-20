@@ -1,10 +1,20 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { FloatingDock } from "@/components/ui/dock";
 import { contactData } from "@/data/portfolio-data";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 
 export const Contact = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio enquiry from ${email}`);
+    const body = encodeURIComponent(`${message}\n\nFrom: ${email}`);
+    window.location.href = `mailto:${contactData.email}?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section
       id="contact"
@@ -17,7 +27,7 @@ export const Contact = () => {
           a friendly hello.
         </p>
 
-        <form className="mx-auto mb-10 w-full max-w-md space-y-4 text-left">
+        <form onSubmit={handleSubmit} className="mx-auto mb-10 w-full max-w-md space-y-4 text-left">
           <div>
             <label htmlFor="email" className="mb-1 block text-sm font-medium text-neutral-400">
               Email
@@ -25,6 +35,9 @@ export const Contact = () => {
             <input
               type="email"
               id="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="your@email.com"
             />
@@ -36,9 +49,12 @@ export const Contact = () => {
             <textarea
               id="message"
               rows={4}
+              required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="Tell me about your project..."
-            ></textarea>
+            />
           </div>
           <button
             type="submit"
@@ -53,7 +69,6 @@ export const Contact = () => {
         </div>
       </div>
 
-      {/* Reusing beams for effect, or could use another background */}
       <BackgroundBeams className="opacity-50" />
     </section>
   );

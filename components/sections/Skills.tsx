@@ -16,11 +16,11 @@ import {
   SiDocker,
   SiKubernetes,
   SiGithubactions,
-  SiAmazon,
   SiGooglecloud,
   SiGit,
   SiPostman,
 } from "react-icons/si";
+import { FaAws } from "react-icons/fa6";
 import { Code2, Workflow } from "lucide-react";
 
 // Skill icon mapping
@@ -42,7 +42,7 @@ const skillIcons: Record<string, React.ReactNode> = {
   Kubernetes: <SiKubernetes className="h-4 w-4" />,
   "CI/CD": <Workflow className="h-4 w-4" />,
   "GitHub Actions": <SiGithubactions className="h-4 w-4" />,
-  AWS: <SiAmazon className="h-4 w-4" />,
+  AWS: <FaAws className="h-4 w-4" />,
   GCP: <SiGooglecloud className="h-4 w-4" />,
   Git: <SiGit className="h-4 w-4" />,
   Postman: <SiPostman className="h-4 w-4" />,

@@ -9,6 +9,10 @@ import {
   IconBrandGithub,
   IconChartBar,
   IconCpu,
+  IconUsers,
+  IconGitPullRequest,
+  IconMessageCircle,
+  IconBox,
 } from "@tabler/icons-react";
 import {
   SiReact,
@@ -25,7 +29,6 @@ import {
   GlowingStarsDescription,
   GlowingStarsTitle,
 } from "@/components/ui/glowing-stars";
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { Meteors } from "@/components/ui/meteors";
 
 export const About = () => {
@@ -40,7 +43,7 @@ export const About = () => {
             <div key={idx} className="flex flex-col">
               <div className="flex items-center text-3xl font-bold text-white">
                 <NumberTicker value={stat.value} className="text-white" />
-                <span>+</span>
+                {stat.suffix && <span>{stat.suffix}</span>}
               </div>
               <span className="text-neutral-500">{stat.label}</span>
             </div>
@@ -135,32 +138,15 @@ const items = [
     description: "Believing in the power of teamwork and open communication.",
     header: (
       <div className="flex h-full min-h-[6rem] w-full flex-1 items-center justify-center rounded-xl border border-white/10 bg-neutral-900">
-        <div className="flex w-full flex-row items-center justify-center">
-          <AnimatedTooltip
-            items={[
-              {
-                id: 1,
-                name: "John Doe",
-                designation: "Software Engineer",
-                image:
-                  "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
-              },
-              {
-                id: 2,
-                name: "Robert Johnson",
-                designation: "Product Manager",
-                image:
-                  "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-              },
-              {
-                id: 3,
-                name: "Jane Smith",
-                designation: "Data Scientist",
-                image:
-                  "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-              },
-            ]}
-          />
+        <div className="flex items-center -space-x-3">
+          {[IconUsers, IconGitPullRequest, IconMessageCircle, IconBox].map((Icon, i) => (
+            <div
+              key={i}
+              className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-neutral-900 bg-gradient-to-br from-neutral-700 to-neutral-800 ring-1 ring-white/10"
+            >
+              <Icon className="h-5 w-5 text-neutral-200" />
+            </div>
+          ))}
         </div>
       </div>
     ),
