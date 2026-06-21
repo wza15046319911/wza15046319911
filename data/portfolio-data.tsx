@@ -64,7 +64,7 @@ export const projectsData: Project[] = [
     description:
       "A retrieval-augmented QA service answering UQ students' questions on courses, prerequisites, fees, and policy over Postgres + pgvector. An LLM planner routes each question to structured, semantic, or hybrid retrieval, while high-risk enrolment facts are answered by deterministic code for zero hallucination.",
     img: "/uq-ask-anything.png",
-    link: "",
+    link: "https://uqaskanything.lewiswang.com.au/",
     github: "https://github.com/wza15046319911/uqaskanything",
     tech: [
       "Python",
