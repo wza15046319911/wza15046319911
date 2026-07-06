@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-canvas: #10100e;
+  --color-ink: #e8e6dd;
+  --color-dim: #9b9789;
+  --color-line: rgba(232, 230, 221, 0.14);
+  --color-line-strong: rgba(232, 230, 221, 0.35);
+  --color-blue: #5c7cff;
+  --font-grotesk: var(--font-schibsted);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: #5c7cff;
+  color: #ffffff;
+}
+
+*:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.answer p { margin: 0 0 0.75rem; }
+.answer p:last-child { margin-bottom: 0; }
+.answer ul { list-style: disc; padding-left: 1.25rem; margin: 0 0 0.75rem; }
+.answer ol { list-style: decimal; padding-left: 1.25rem; margin: 0 0 0.75rem; }
+.answer li { margin-bottom: 0.25rem; }
+.answer strong { font-weight: 700; }
+.answer a { color: var(--color-blue); text-decoration: underline; text-underline-offset: 4px; }
+.answer code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.85em;
+  background: var(--color-line);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+.answer pre {
+  background: var(--color-line);
+  padding: 0.75rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0 0 0.75rem;
+}
+.answer pre code { background: transparent; padding: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .answer .animate-pulse { animation: none; }
+}

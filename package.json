@@ -1,41 +1,48 @@
 {
-  "name": "portfolio",
+  "name": "zane-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
     "start": "next start",
-    "lint": "eslint .",
-    "format": "prettier --write ."
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "kb:build": "tsx --env-file=.env.local scripts/build-kb-index.ts",
+    "cf:build": "opennextjs-cloudflare build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
-    "@tabler/icons-react": "^3.36.1",
-    "@tsparticles/react": "^3.0.0",
-    "@tsparticles/slim": "^3.9.1",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.25.0",
-    "lucide-react": "^0.562.0",
-    "mini-svg-data-uri": "^1.4.4",
-    "next": "16.1.1",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-icons": "^5.5.0",
-    "tailwind-merge": "^3.4.0"
+    "lenis": "^1.3.25",
+    "motion": "^12.42.2",
+    "next": "16.2.10",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
+    "@cloudflare/workers-types": "^5.20260703.1",
+    "@opennextjs/cloudflare": "^1.20.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9.39.2",
-    "eslint-config-next": "^16.1.1",
-    "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.7.4",
-    "prettier-plugin-tailwindcss": "^0.7.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
+    "tsx": "^4.23.0",
     "typescript": "^5",
-    "typescript-eslint": "^8.53.0"
+    "vitest": "^4.1.9",
+    "wrangler": "^4.107.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }
