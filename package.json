@@ -39,11 +39,5 @@
     "typescript": "^5",
     "vitest": "^4.1.9",
     "wrangler": "^4.107.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp",
-      "unrs-resolver"
-    ]
   }
 }
