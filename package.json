@@ -10,6 +10,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "kb:build": "tsx --env-file=.env.local scripts/build-kb-index.ts",
+    "ai:build": "tsx scripts/build-ai-usage.ts",
     "cf:build": "opennextjs-cloudflare build",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",

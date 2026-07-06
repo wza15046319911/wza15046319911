@@ -6,9 +6,21 @@ import { useInView, useMotionValue, useSpring } from "motion/react";
 interface NumberTickerProps {
   value: number;
   suffix?: string;
+  decimals?: number;
 }
 
-export function NumberTicker({ value, suffix = "" }: NumberTickerProps) {
+function format(value: number, decimals: number) {
+  return value.toLocaleString("en-US", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
+}
+
+export function NumberTicker({
+  value,
+  suffix = "",
+  decimals = 0,
+}: NumberTickerProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(0);
   const spring = useSpring(motionValue, { damping: 40, stiffness: 140 });
@@ -23,10 +35,10 @@ export function NumberTicker({ value, suffix = "" }: NumberTickerProps) {
   useEffect(() => {
     return spring.on("change", (latest) => {
       if (ref.current) {
-        ref.current.textContent = `${Math.round(latest)}${suffix}`;
+        ref.current.textContent = `${format(latest, decimals)}${suffix}`;
       }
     });
-  }, [spring, suffix]);
+  }, [spring, suffix, decimals]);
 
-  return <span ref={ref}>{`0${suffix}`}</span>;
+  return <span ref={ref}>{`${format(0, decimals)}${suffix}`}</span>;
 }

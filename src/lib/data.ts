@@ -265,3 +265,68 @@ export const degrees: Degree[] = [
     school: "University of Queensland",
   },
 ];
+
+export interface AiTool {
+  name: string;
+  role: string;
+  description: string;
+}
+
+export interface AiPrinciple {
+  title: string;
+  body: string;
+}
+
+export const aiPractice = {
+  headline: "I don't just use AI. I engineer with it.",
+  intro:
+    "Agentic coding tools are in my daily loop, not as an autocomplete toy but as a disciplined part of delivery. I draw a hard line between deterministic code and the model: routing, retries, thresholds and anything with a right answer stay in explicit code, while the model handles classification, drafting and ambiguity. This site is itself an example, a grounded RAG chat where high-risk facts never come from the model.",
+};
+
+export const aiTools: AiTool[] = [
+  {
+    name: "Claude Code",
+    role: "Primary agentic pair",
+    description:
+      "My main driver for end-to-end feature work, refactors and debugging. Multi-file edits, skills and test loops run here, with code review keeping the bar where it belongs.",
+  },
+  {
+    name: "Codex",
+    role: "Parallel verification",
+    description:
+      "A second, independent agent I run alongside to cross-check changes, explore alternative approaches and pressure-test decisions before they land.",
+  },
+  {
+    name: "Cursor",
+    role: "Inline editing",
+    description:
+      "Fast in-editor edits and completions for tight local loops, when the change is small and I want to stay in the file.",
+  },
+];
+
+export const aiPrinciples: AiPrinciple[] = [
+  {
+    title: "Deterministic code, not the model",
+    body: "Routing, retry policy, thresholds and escalation rules are explicit code. The model only classifies, summarises, drafts and resolves ambiguity, never decides facts with a right answer.",
+  },
+  {
+    title: "Errors are never swallowed",
+    body: "Every error is thrown, returned or reported. No silent default-success, no hiding failures behind fallback values.",
+  },
+  {
+    title: "Every loop has a budget",
+    body: "Each iteration loop gets a defined budget in iterations, tokens or time. When it is spent, I stop and present results instead of re-trying a rejected fix.",
+  },
+  {
+    title: "Reuse before building",
+    body: "Before writing a feature I search for an existing open-source solution. I would rather adopt a proven tool than reinvent the wheel.",
+  },
+  {
+    title: "Minimum code that does the job",
+    body: "No speculative features, no abstractions for single-use logic. I optimise for simplicity, robustness and long-term maintainability over short-term speed.",
+  },
+  {
+    title: "Tests verify behaviour",
+    body: "Tests check values, structure, side effects and error types, not just that code runs without throwing. Weak tests get flagged, not counted.",
+  },
+];

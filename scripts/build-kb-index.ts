@@ -15,6 +15,7 @@ const SOURCE_LABELS: Record<string, string> = {
   "project-uq-ask-anything": "Project - UQ Ask Anything",
   experience: "Work experience",
   "tech-opinions": "How Zane thinks about technology",
+  "ai-practice": "How Zane works with AI",
   faq: "FAQ",
 };
 

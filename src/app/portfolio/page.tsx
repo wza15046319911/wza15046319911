@@ -9,6 +9,9 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { NumberTicker } from "@/components/number-ticker";
 import { Reveal } from "@/components/reveal";
 import {
+  aiPractice,
+  aiPrinciples,
+  aiTools,
   degrees,
   profile,
   projects,
@@ -17,6 +20,7 @@ import {
   stats,
   type Role,
 } from "@/lib/data";
+import usage from "../../content/ai-usage.json";
 import nbfShot from "../../../public/nothing-but-fun.png";
 import piggywayShot from "../../../public/piggyway.png";
 import studyPilotShot from "../../../public/study-pilot.png";
@@ -30,6 +34,21 @@ const screenshots: Record<string, StaticImageData> = {
   uqask: uqAskShot,
   nbf: nbfShot,
 };
+
+const toolKeys = ["claude-code", "codex", "cursor"];
+
+function formatTokens(tokens: number): string {
+  if (tokens >= 1e9) return `${(tokens / 1e9).toFixed(1)}B`;
+  if (tokens >= 1e6) return `${Math.round(tokens / 1e6)}M`;
+  if (tokens >= 1e3) return `${Math.round(tokens / 1e3)}K`;
+  return `${tokens}`;
+}
+
+function monthsBetween(since: string, until: string): number {
+  const [sy, sm] = since.split("-").map(Number);
+  const [uy, um] = until.split("-").map(Number);
+  return Math.max(0, (uy - sy) * 12 + (um - sm));
+}
 
 function SectionRule({ title, meta }: { title: string; meta?: string }) {
   return (
@@ -146,6 +165,10 @@ export default function PortfolioPage() {
   };
 
   const headlineLines = ["Full-stack developer", "in Melbourne."];
+  const monthsWithAgents = monthsBetween(
+    usage.combined.since,
+    usage.generatedAt,
+  );
 
   return (
     <div id="top" className="mx-auto max-w-[1100px] px-5 md:px-8">
@@ -166,6 +189,13 @@ export default function PortfolioPage() {
           </a>
           <nav className="flex gap-6 text-sm">
             <ModeToggle current="portfolio" />
+            <a
+              href="#ai"
+              onClick={(e) => goTo(e, "#ai")}
+              className="underline-offset-4 hover:underline"
+            >
+              AI
+            </a>
             <a
               href="#work"
               onClick={(e) => goTo(e, "#work")}
@@ -292,6 +322,120 @@ export default function PortfolioPage() {
             </div>
           ))}
         </motion.div>
+      </section>
+
+      <section id="ai" className="pb-16">
+        <SectionRule title="AI practice" meta="Practitioner, not spectator" />
+        <div className="mt-10 grid gap-10 md:grid-cols-12">
+          <Reveal delay={0.05} className="md:col-span-7">
+            <p className="text-2xl leading-snug font-bold tracking-tight md:text-3xl">
+              {aiPractice.headline}
+            </p>
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-dim">
+              {aiPractice.intro}
+            </p>
+          </Reveal>
+          <Reveal delay={0.15} className="md:col-span-5">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-6">
+              {[
+                {
+                  value: usage.combined.tokens / 1e9,
+                  decimals: 1,
+                  suffix: "B",
+                  label: "Tokens with agents",
+                },
+                {
+                  value: usage.combined.sessions,
+                  decimals: 0,
+                  suffix: "+",
+                  label: "Coding sessions",
+                },
+                {
+                  value: usage.combined.models,
+                  decimals: 0,
+                  suffix: "",
+                  label: "Models used",
+                },
+                {
+                  value: monthsWithAgents,
+                  decimals: 0,
+                  suffix: "+",
+                  label: "Months in the loop",
+                },
+              ].map((tile) => (
+                <div key={tile.label} className="border-t border-line pt-3">
+                  <div className="text-2xl font-bold tracking-tight md:text-3xl">
+                    <NumberTicker
+                      value={tile.value}
+                      suffix={tile.suffix}
+                      decimals={tile.decimals}
+                    />
+                  </div>
+                  <div className="mt-1 text-xs text-dim">{tile.label}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-xs text-dim">
+              Claude Code and Codex, measured to {usage.generatedAt}. Spend
+              withheld.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {aiTools.map((tool, i) => {
+            const stat = usage.tools[i];
+            const showStats = stat && stat.key === toolKeys[i];
+            return (
+              <Reveal key={tool.name} delay={0.1 + i * 0.05}>
+                <div className="h-full border border-line p-5 transition-colors duration-300 hover:border-ink/50">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="text-lg font-bold tracking-tight">
+                      {tool.name}
+                    </h3>
+                    <span className="text-xs text-dim">{tool.role}</span>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-dim">
+                    {tool.description}
+                  </p>
+                  <p className="mt-4 border-t border-line pt-3 text-xs text-dim">
+                    {showStats
+                      ? `${stat.sessions} sessions · ${formatTokens(stat.tokens)} tokens · ${stat.models} models`
+                      : "Cloud-side usage, numbers not shown"}
+                  </p>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-12 flex items-baseline justify-between border-t border-line pt-3">
+            <h3 className="text-sm font-semibold">
+              Principles from my CLAUDE.md
+            </h3>
+            <span className="text-xs text-dim">How I keep the bar high</span>
+          </div>
+        </Reveal>
+        <div className="mt-6 grid gap-x-10 gap-y-6 md:grid-cols-2">
+          {aiPrinciples.map((principle, i) => (
+            <Reveal key={principle.title} delay={0.1 + (i % 2) * 0.05}>
+              <div className="flex gap-4">
+                <span className="text-sm text-dim tabular-nums">
+                  0{i + 1}
+                </span>
+                <div>
+                  <h4 className="text-[15px] font-semibold">
+                    {principle.title}
+                  </h4>
+                  <p className="mt-1 text-sm leading-relaxed text-dim">
+                    {principle.body}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <section id="work" className="pb-6">

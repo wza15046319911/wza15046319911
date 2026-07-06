@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-07-06",
+  "combined": {
+    "tokens": 3295178627,
+    "sessions": 1100,
+    "models": 16,
+    "since": "2025-09"
+  },
+  "tools": [
+    {
+      "key": "claude-code",
+      "sessions": 835,
+      "tokens": 2561804978,
+      "models": 6
+    },
+    {
+      "key": "codex",
+      "sessions": 265,
+      "tokens": 733373649,
+      "models": 10,
+      "since": "2025-09"
+    }
+  ]
+}

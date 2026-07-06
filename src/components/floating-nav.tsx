@@ -11,6 +11,7 @@ import {
 import { profile } from "@/lib/data";
 
 const links = [
+  { label: "AI", href: "#ai" },
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
