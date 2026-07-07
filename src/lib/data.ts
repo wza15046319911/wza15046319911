@@ -163,12 +163,14 @@ export const roles: Role[] = [
     location: "Melbourne, Australia",
     period: "Feb 2025 - Jun 2026",
     summary:
-      "Built and ran the publisher's web platform: responsive Next.js frontend, Node.js APIs and an event-bus service on GCP.",
+      "Owned broadsheet.com.au end to end: the Next.js frontend, the backend services and a rebuilt headless CMS, all running on GCP.",
     points: [
-      "Shipped scalable RESTful APIs in Node.js and TypeScript with Redis in front for performance",
-      "Deployed services on Cloud Run, GKE and Pub/Sub, with Docker and Kubernetes CI/CD pipelines for the CMS",
+      "Designed and built core frontend surfaces of broadsheet.com.au in Next.js, TailwindCSS and Radix UI: the user account area, the saved-articles page and every screen in the subscription paywall flow (broadsheet.com.au/subscribe), with Redis caching for performance",
+      "Independently designed, built and deployed the backend to GKE in Node.js, TypeScript and PostgreSQL with Drizzle ORM: a trending API that pulls Amplitude reading data and serves the top three most-read articles, payment flows through the Chargebee SDK, and newsletter subscription endpoints powered by the Braze SDK",
+      "Built a Directus headless CMS from zero to one: modelled every schema, ran the data migration, and decoupled all synchronous flows into an async Pub/Sub queue so editors never wait on long tasks - workers pick up each job and write results back to the database",
+      "Integrated publishing with Apple News, so editors syndicate an article to Apple News as part of the normal publish flow",
     ],
-    tech: ["Next.js", "TypeScript", "Node.js", "Python", "PostgreSQL", "Redis", "GCP", "Kubernetes"],
+    tech: ["Next.js", "TypeScript", "TailwindCSS", "Radix UI", "Node.js", "PostgreSQL", "Drizzle ORM", "Redis", "Directus", "Pub/Sub", "GKE"],
   },
   {
     company: "AnyStay",
@@ -189,25 +191,27 @@ export const roles: Role[] = [
     location: "Beijing, China",
     period: "Jul 2023 - Dec 2023",
     summary:
-      "Built web middleware and APIs for a platform operating at social-media scale.",
+      "Built the merge-request quality gate that Douyin QA relies on as the last line of defence for client code quality.",
     points: [
-      "Cut middleware latency by 60% with a Redis-backed queue system",
-      "Introduced Kafka-based event-driven architecture; ran consistent dev/staging/prod on Docker, Kubernetes and Terraform",
+      "Independently designed and built middleware that screens the high volume of daily MRs into Douyin's main and satellite repositories against custom QA rules, such as no feature merges after 5pm, no bugfix merges after 4pm, and a mandatory extra +1 review once a change exceeds 50 lines",
+      "Made the rule-checking engine customisable and extensible, sustaining 100+ requests per second at peak: hot rules cached in Redis, long-running checks offloaded to a message queue with workers writing results back to the database and cache, deployed on Kubernetes",
     ],
     tech: ["React", "TypeScript", "Express", "PostgreSQL", "Redis", "Kafka", "Kubernetes", "Terraform"],
   },
   {
     company: "Kexing EasyGo",
-    role: "Lead Full Stack Developer",
+    role: "Founder & Lead Full Stack Developer",
     location: "Brisbane, Australia",
     period: "Nov 2020 - Nov 2022",
     summary:
-      "Led frontend and backend developers building an academic companion app for University of Queensland students.",
+      "Founded a non-profit campus mini-app for University of Queensland students and led its engineering team.",
     points: [
-      "Built the app in React, React Native and Node.js with a Kafka event bus between microservices",
-      "Established the Jest testing standard with coverage thresholds enforced in CI; provisioned AWS with Terraform",
+      "Founded and designed the product: a campus WeChat mini-program with class timetables, course reviews, a grade calculator and assignment deadline countdown reminders",
+      "Led a squad of 3-5 frontend and backend developers within a team of around 20 people spanning UI/UX, product, operations and user growth",
+      "Built the frontend in React and the backend in Node.js, running serverless on AWS Lambda with DynamoDB",
+      "Grew the app to 2,000+ users across three campuses with 100-200 daily actives, operated as a non-profit",
     ],
-    tech: ["React", "React Native", "TypeScript", "Node.js", "PostgreSQL", "Kafka", "AWS", "Terraform"],
+    tech: ["React", "Node.js", "AWS Lambda", "DynamoDB"],
   },
   {
     company: "Graviti",
