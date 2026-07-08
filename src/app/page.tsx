@@ -27,9 +27,9 @@ export default function Home() {
           instead.
         </div>
       </noscript>
+      <ModeToggle current="ask" offset="bottom-24 min-[960px]:bottom-6" />
       <header className="flex items-center justify-between py-6">
         <span className="text-xl font-bold tracking-tight">Zane Wang</span>
-        <ModeToggle current="ask" />
       </header>
 
       {empty ? (

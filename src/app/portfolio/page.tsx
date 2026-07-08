@@ -164,6 +164,11 @@ export default function PortfolioPage() {
     }
   };
 
+  const featuredCompanies = ["Broadsheet Media", "TikTok", "Kexing EasyGo"];
+  const featuredRoles = roles.filter((role) =>
+    featuredCompanies.includes(role.company),
+  );
+
   const headlineLines = ["Full-stack developer", "in Melbourne."];
   const monthsWithAgents = monthsBetween(
     usage.combined.since,
@@ -173,6 +178,7 @@ export default function PortfolioPage() {
   return (
     <div id="top" className="mx-auto max-w-[1100px] px-5 md:px-8">
       <FloatingNav />
+      <ModeToggle current="portfolio" />
       <motion.header
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -188,7 +194,6 @@ export default function PortfolioPage() {
             Zane Wang
           </a>
           <nav className="flex gap-6 text-sm">
-            <ModeToggle current="portfolio" />
             <a
               href="#ai"
               onClick={(e) => goTo(e, "#ai")}
@@ -522,14 +527,14 @@ export default function PortfolioPage() {
       </section>
 
       <section id="experience" className="pb-16">
-        <SectionRule title="Experience" meta="2020 to present" />
+        <SectionRule title="Work I'm proud of" meta="2020 to present" />
         <div className="mt-10">
-          {roles.map((role, i) => (
+          {featuredRoles.map((role, i) => (
             <ExperienceRow
               key={`${role.company}-${role.period}`}
               role={role}
               index={i}
-              isLast={i === roles.length - 1}
+              isLast={i === featuredRoles.length - 1}
             />
           ))}
         </div>

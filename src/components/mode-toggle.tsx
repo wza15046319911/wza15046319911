@@ -1,12 +1,19 @@
 import Link from "next/link";
 
-export function ModeToggle({ current }: { current: "ask" | "portfolio" }) {
-  const base =
-    "px-3 py-1 text-sm transition-colors underline-offset-4";
-  const active = "text-ink underline";
-  const idle = "text-dim hover:text-ink hover:underline";
+export function ModeToggle({
+  current,
+  offset = "bottom-6",
+}: {
+  current: "ask" | "portfolio";
+  offset?: string;
+}) {
+  const base = "rounded-full px-3.5 py-1.5 transition-colors";
+  const active = "bg-ink text-canvas";
+  const idle = "text-dim hover:text-ink";
   return (
-    <div className="inline-flex items-center gap-1 border border-line rounded-full px-1 py-0.5">
+    <div
+      className={`fixed right-5 z-50 inline-flex items-center rounded-full border border-line bg-canvas/90 p-1 text-sm backdrop-blur-sm md:right-8 ${offset}`}
+    >
       <Link href="/" className={`${base} ${current === "ask" ? active : idle}`}>
         Ask me
       </Link>
