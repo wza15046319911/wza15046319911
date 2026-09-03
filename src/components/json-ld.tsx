@@ -8,7 +8,7 @@ export function JsonLd() {
     alternateName: "Zane Wang",
     url: "https://lewiswang.com.au",
     email: `mailto:${profile.email}`,
-    jobTitle: "Full Stack Developer",
+    jobTitle: profile.role,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Melbourne",
