@@ -15,7 +15,7 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL("https://lewiswang.com.au"),
   title: {
-    default: "Zane Wang | Full Stack Developer",
+    default: "Zane Wang | Senior Software & AI Engineer",
     template: "%s | Zane Wang",
   },
   description,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://lewiswang.com.au",
-    title: "Zane Wang | Full Stack Developer",
+    title: "Zane Wang | Senior Software & AI Engineer",
     description,
     siteName: "Zane Wang",
     locale: "en_AU",
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Zane Wang, Full Stack Developer in Melbourne",
+        alt: "Zane Wang, Senior Software & AI Engineer in Melbourne",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zane Wang | Full Stack Developer",
+    title: "Zane Wang | Senior Software & AI Engineer",
     description,
     images: ["/og-image.png"],
   },

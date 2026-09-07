@@ -33,7 +33,7 @@ export interface Degree {
 
 export const profile = {
   name: "Zane Wang",
-  role: "Full Stack Developer",
+  role: "Senior Software & AI Engineer",
   location: "Melbourne, Australia",
   email: "zianwang9911@gmail.com",
   phone: "0447 435 758",
@@ -152,11 +152,26 @@ export const projects: Project[] = [
 
 export const stats = [
   { label: "Years of experience", value: 5, suffix: "+" },
-  { label: "Companies", value: 5, suffix: "" },
+  { label: "Companies", value: 6, suffix: "" },
   { label: "Featured projects", value: 4, suffix: "" },
 ];
 
 export const roles: Role[] = [
+  {
+    company: "Plus Also Studios",
+    role: "Senior Software & AI Engineer",
+    location: "Melbourne, Australia",
+    period: "Jul 2026 - Present",
+    summary:
+      "Design, prototype and ship AI-driven features for a creative studio: LLM and generative-AI workflows for content creation and automation, from feasibility assessment to production.",
+    points: [
+      "Design, prototype and deploy LLM and generative-AI solutions that turn manual content-creation and automation work into scalable production workflows",
+      "Work with the Head of Product Engineering and the engineering team to build and ship generative-AI features, keeping each one within the studio's technical strategy and its scalability, security and efficiency standards",
+      "Assess the real-world capabilities and limits of current AI tools against project requirements, so product, creative and strategy teams get a clear go or no-go before committing",
+      "Bring technical expertise to client engagements, explain the business value of AI-powered solutions in plain terms, and support teammates in applying AI across creative and business problems",
+    ],
+    tech: ["TypeScript", "Node.js", "Next.js", "LLM APIs", "Generative AI"],
+  },
   {
     company: "Broadsheet Media",
     role: "Full Stack Developer",

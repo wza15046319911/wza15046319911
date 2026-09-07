@@ -164,12 +164,12 @@ export default function PortfolioPage() {
     }
   };
 
-  const featuredCompanies = ["Broadsheet Media", "TikTok", "Kexing EasyGo"];
+  const featuredCompanies = ["Plus Also Studios", "Broadsheet Media", "TikTok", "Kexing EasyGo"];
   const featuredRoles = roles.filter((role) =>
     featuredCompanies.includes(role.company),
   );
 
-  const headlineLines = ["Full-stack developer", "in Melbourne."];
+  const headlineLines = ["Senior software & AI engineer", "in Melbourne."];
   const monthsWithAgents = monthsBetween(
     usage.combined.since,
     usage.generatedAt,
